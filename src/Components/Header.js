@@ -7,7 +7,7 @@ const Header = () => {
     <header>
       <Link to="/" className="logo">
         <img src={logo} alt="shopping-cart" />
-        <span>Shopping Cart</span>
+        <span>Redux Cart</span>
       </Link>
       <nav className="navigation">
         <NavLink to="/" className="link">
