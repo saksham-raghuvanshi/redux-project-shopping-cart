@@ -41,3 +41,12 @@ max-width: 150px;
 .productcart button:hover{
     background-color: #103f80;
 }
+
+.productcart .remove{
+    background-color: #ac0d14;
+}
+
+.productcart .remove:hover{
+    background-color: #8e090f;
+}
+
