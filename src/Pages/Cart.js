@@ -1,28 +1,19 @@
 import React from "react";
 import { useTitle } from "../Custom-hook/useTitle";
 import CartCard from "../Components/CartCard";
+import { useSelector } from "react-redux";
 
 const Cart = () => {
   useTitle("Cart");
 
-  const products = [
-    {
-      id: 1001,
-      name: "Sony Wh-Ch510 Bluetooth Wireless",
-      price: 30000,
-      image: "/assets/images/1001.png",
-    },
-    {
-      id: 1002,
-      name: "boAt Rockerz 450",
-      price: 3000,
-      image: "/assets/images/1002.png",
-    },
-  ];
+  const products = useSelector((state) => state.cartState.cartList);
+  const total = useSelector((state) => state.cartState.total);
   return (
     <main>
       <section lassName="cart">
-        <h1>Cart Item:{products.length}</h1>
+        <h1>
+          Cart Item:{products.length}/ ₹{total}
+        </h1>
         {products.map((product) => (
           <CartCard key={product.id} product={product} />
         ))}

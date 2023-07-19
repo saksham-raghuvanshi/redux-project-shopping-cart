@@ -7,8 +7,20 @@ const cartSlice = createSlice({
     total: 0,
   },
   reducers: {
-    add(state, action) {},
-    remove() {},
+    add(state, action) {
+      const updateCartList = state.cartList.concat(action.payload);
+      const total = state.total + action.payload.price;
+      return { ...state, total: total, cartList: updateCartList };
+    },
+    remove(state, action) {
+      const updateCartList = state.cartList.filter(
+        (item) => item.id !== action.payload.id
+      );
+
+      const total = state.total - action.payload.price;
+
+      return { ...state, total: total, cartList: updateCartList };
+    },
   },
 });
 
